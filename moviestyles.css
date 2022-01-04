@@ -1,0 +1,12 @@
+.Results-Container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+.Result-Card{
+    background-color: rgb(66, 152, 152);
+
+}
