@@ -8,12 +8,13 @@
     padding: 6px;
     margin: 6px;
     background: lightgray;
-
+    height: 400px;
+    width: 1200px;
 }
 
 
 .Result-Card{
     background-color: rgb(66, 152, 152);
-    
+    margin: 6px;
 
 }
