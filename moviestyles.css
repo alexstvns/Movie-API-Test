@@ -10,11 +10,13 @@
     background: lightgray;
     height: 400px;
     width: 1200px;
+    flex-basis: 100%;
 }
 
 
 .Result-Card{
     background-color: rgb(66, 152, 152);
     margin: 6px;
+   
 
 }
