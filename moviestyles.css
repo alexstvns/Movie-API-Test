@@ -1,22 +1,74 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: rgba(0, 0, 0, .88);
+}
+
+
 .Results-Container {
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
 
 
-    padding: 6px;
-    margin: 6px;
-    background: lightgray;
-    height: 400px;
-    width: 1200px;
-    flex-basis: 100%;
 }
 
 
-.Result-Card{
-    background-color: rgb(66, 152, 152);
-    margin: 6px;
+.Result-Card {
    
+    
+    background-color: rgb(66, 152, 152);
+    margin: 10px;
+    width: 270px;
+    border-radius: 15px;
+}
+
+.Result-Card h2 {
+    padding: 10px;
+}
+.Result-Card p {
+    padding: 10px;
+}
+
+
+.Result-Card:hover {
+    color: white;
+    background-color: (62, 62, 62);
+    cursor: pointer;
+    transform: scale(1.03);
+    transition: all .5s ease-in
+}
+
+.Result-Image {
+    /*background-color: mediumblue; */
+    background-image: url('./img/camera-roll.jpg');
+    height: 150px;
+    margin-bottom: 15px;
+    border-radius: 15px 15px 0 0;
+}
+
+.Main-Header {
+    color:rgb(66, 152, 152);
+    text-align: center;
+}
+
+
+#Movie-Search-Input {
+    background-color: rgb(66, 152, 152);
+}
+
+
+
+
+#Movie-Submit {
+    background-color: rgb(66, 152, 152);
 
 }
+
+
+
+
