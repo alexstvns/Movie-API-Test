@@ -45,7 +45,7 @@ body {
 
 .Result-Image {
     /*background-color: mediumblue; */
-    background-image: url('./img/camera-roll.jpg');
+    /*background-image: url('./img/camera-roll.jpg'); */
     height: 150px;
     margin-bottom: 15px;
     border-radius: 15px 15px 0 0;
