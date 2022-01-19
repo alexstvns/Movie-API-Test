@@ -1,11 +1,22 @@
-let rMax = Math.random() *25 +1;
+var results;
+var rMax;
+var SearchResults;
 
-var results = [];
+function init() {
+    rMax = Math.random() *25 +1;
+
+    results = [];
+    
+    SearchResults = document.querySelector('.Results-Container');
+
+}
 
 
-function SearchFunction (){
 
-let SearchResults = document.querySelector('.Results-Container');
+
+
+function SearchFunction(){
+
 
 //clear results and then create random max count.
 if(SearchResults.firstChild){
@@ -15,13 +26,19 @@ if(SearchResults.firstChild){
     }
     rMax = Math.random() *25 +1;
 }
- 
 
 
-MovieDBAPI('Robin Williams');
+let searchString = document.getElementById('Movie-Search-Input').value;
 
+console.log(searchString);
+MovieDBAPI(searchString);
+//MovieDBAPI('Robin Williams');
 
+console.log(results);
 
+results.forEach(element => {
+    SearchResults.append(element);
+  });
 
   // For testing, creates 10  result card elements and adds them to
   // the results container  
@@ -30,19 +47,6 @@ MovieDBAPI('Robin Williams');
       results.push(DemoResults());
   }
 */
-
-
-
-
-console.log(results);
-
-  results.forEach(element => {
-    SearchResults.append(element);
-  });
-
-
-
-
 }
 
 
@@ -51,10 +55,22 @@ function ResultBuilder(img, heading, para){
     var resultNode = document.createElement("div");
     resultNode.classList.add('Result-Card');
 
-    var imgNode = document.createElement('div');
+
+
+    var imgNode = document.createElement('img');
     imgNode.classList.add('Result-Image');
 
-    imgNode.style.backgroundImage = `url(https://image.tmdb.org/t/p/original/${img})`;
+    //Check to see if there are any null images, if so return the default image. 
+    if(img === null){
+
+        imgNode.src = "/img/camera-roll.jpg";
+
+    }
+    else {
+        imgNode.src = `https://image.tmdb.org/t/p/original/${img}`;
+    }
+
+   
     var headerNode = document.createElement('h2');
     var paraNode = document.createElement('p');
 
@@ -96,6 +112,7 @@ async function MovieDBAPI(searchQuery) {
             //console.log(res.poster_path);
             //console.log(res.original_title);
             //console.log(res.overview);
+            console.log(res);
             results.push(movieob);
         });
         
