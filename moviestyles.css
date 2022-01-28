@@ -14,6 +14,7 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     overflow: auto;
+    
 
 
 }
@@ -33,6 +34,7 @@ body {
 }
 .Result-Card p {
     padding: 10px;
+    
 }
 
 
