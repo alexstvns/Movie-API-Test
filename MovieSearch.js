@@ -31,8 +31,10 @@ if(SearchResults.firstChild){
 let searchString = document.getElementById('Movie-Search-Input').value;
 
 console.log(searchString);
-MovieDBAPI(searchString);
-//MovieDBAPI('Robin Williams');
+MovieDBAPI(searchString).catch((error) => {
+    console.error('Error: ', error);
+});;
+
 
 console.log(results);
 
@@ -93,7 +95,7 @@ function ResultBuilder(img, heading, para){
 
 async function MovieDBAPI(searchQuery) {
 
-    let key = '';
+    const key = '';
     let url = `https://api.themoviedb.org/3/search/movie?api_key=${key}&language=en-US&query=${searchQuery}&page=1&include_adult=false`;
 
     const response = await fetch(url, {
@@ -101,7 +103,24 @@ async function MovieDBAPI(searchQuery) {
         headers: {
             'Content-Type': 'application/json',
         }
-    })
+    });
+
+    const res = await response.json();
+    const data = res.results;
+    console.log(data);
+    data.forEach(d => {
+        movieob = ResultBuilder(d.poster_path, d.original_title, d.overview);
+        console.log(d);
+        results.push(movieob);
+    });
+
+    /*
+    data.forEach(res => {
+        movieob = ResultBuilder(res.poster_path, res.original_title, res.overview);
+        console.log(res);
+        results.push(movieob);
+
+    /*
     .then(response => response.json())
     .then(data => {
         var totalResults = data.results;
@@ -109,18 +128,15 @@ async function MovieDBAPI(searchQuery) {
 
         totalResults.forEach(res => {
             movieob = ResultBuilder(res.poster_path, res.original_title, res.overview);
-            //console.log(res.poster_path);
-            //console.log(res.original_title);
-            //console.log(res.overview);
             console.log(res);
             results.push(movieob);
         });
         
-    })
-    .catch((error) => {
-        console.error('Error: ', error);
-    });
+    }) */
 
+
+
+//});
 
 }
 
